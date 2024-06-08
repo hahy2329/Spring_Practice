@@ -8,19 +8,19 @@
 	<!-- 검사 -->
 	<http use-expressions="true">
 		<intercept-url pattern="/login/loginForm.do" access="permitAll"/>
-		<intercept-url pattern="/home.do" access="permitAll"/>
+		<intercept-url pattern="/" access="permitAll"/>
 		<intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
 		<intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN')"/>
 		
 		
 		<form-login login-page="/login/loginForm.do"
-					default-target-url="/home.do"
+					default-target-url="/"
 					authentication-failure-url="/login/loginForm.do?error"
 					username-parameter="id"
 					password-parameter="password"/>			
-		<logout logout-url="/logout" logout-success-url="/home.do"/>
+		<logout logout-url="/logout" 
+				logout-success-url="/home.do"/>
 		<access-denied-handler error-page="/login/accessDenied.do"/>
-		<csrf disabled="false"/>
 	</http>
 	
 	<!-- provider -->
