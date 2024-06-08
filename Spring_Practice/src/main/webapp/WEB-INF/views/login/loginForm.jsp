@@ -12,8 +12,16 @@
 	<h3>아이디와 비밀번호를 입력해주세요.</h3>
 	
 	<c:url value="/login" var="loginUrl"/>
-	<form:form>
-	
+	<form:form name="f" action="${loginUrl }" method="POST">
+		<c:if test="${param.error != null }">
+			<p>아이디와 비밀번호가 잘못되었습니다.</p>
+		</c:if>
+		<c:if test="">
+		
+		
+		</c:if>
+		
+		
 	</form:form>
 
 </body>
