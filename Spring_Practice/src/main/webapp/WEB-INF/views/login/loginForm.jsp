@@ -16,12 +16,18 @@
 		<c:if test="${param.error != null }">
 			<p>아이디와 비밀번호가 잘못되었습니다.</p>
 		</c:if>
-		<c:if test="">
-		
-		
+		<c:if test="${param.logout != null }">
+			<p>로그아웃 하였습니다.</p>
 		</c:if>
-		
-		
+		<p>
+			<label for="username">아이디</label>
+			<input type="text" id="id" name="id">
+		</p>
+		<p>
+			<label for="password">비밀번호</label>
+			<input type="password" id="password" name="password">
+		</p>
+		<button type="submit" class="btn">로그인</button>
 	</form:form>
 
 </body>
