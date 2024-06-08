@@ -10,6 +10,11 @@
 </head>
 <body>
 	<h3>아이디와 비밀번호를 입력해주세요.</h3>
+	
+	<c:url value="/login" var="loginUrl"/>
+	<form:form>
+	
+	</form:form>
 
 </body>
 </html>
