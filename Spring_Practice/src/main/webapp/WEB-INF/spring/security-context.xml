@@ -26,10 +26,15 @@
 	<!-- provider -->
 	<authentication-manager>
 		<authentication-provider>
-			<user-service>
-				<user name="user" password="{noop}password" authorities="ROLE_USER"/>
-				<user name="admin" password="{noop}password" authorities="ROLE_ADMIN"/>
-			</user-service>
+			<jdbc-user-service 
+				data-source-ref="dataSource"
+				role-prefix=""
+				users-by-username-query="select user_name, password, enabled from users where user_name = ?"
+				authorities-by-username-query="select user_name, authority from authorities where user_name = ?"
+				group-authorities-by-username-query="select g.id, g.group_name, ga.authority 
+													from groups g, group_members gm, group_authorities ga 
+													where gm.user_name = ? and g.id = ga.group_id and g.id = gm.group_id"
+				/>
 		</authentication-provider>
 	</authentication-manager>
 
