@@ -42,4 +42,11 @@ public class HomeController {
 		
 		return "intro/introduction";
 	}
+	
+	@RequestMapping(value = "/admin/adminHome.do" , method = RequestMethod.GET)
+	public String adminHome(Locale locale, Model model) {
+		logger.info("Welcome adminHome!");
+		
+		return "admin/adminHome";
+	}
 }
